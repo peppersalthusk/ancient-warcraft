@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ancient_warcraft:item/encapsulated_soul_blade"
+  }
+}

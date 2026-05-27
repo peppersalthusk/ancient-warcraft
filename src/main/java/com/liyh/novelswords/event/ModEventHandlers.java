@@ -40,6 +40,8 @@ public final class ModEventHandlers {
             insertAfter(entries, Items.STONE_SWORD, ModRegistries.MAGMA_SWORD.get());
             insertAfter(entries, Items.DIAMOND_SWORD, ModRegistries.BLAZE_SWORD.get());
             insertAfter(entries, ModRegistries.BLAZE_SWORD.get(), ModRegistries.SOUL_BLADE.get());
+            insertAfter(entries, ModRegistries.SOUL_BLADE.get(), ModRegistries.ENCAPSULATED_SOUL.get());
+            insertAfter(entries, ModRegistries.ENCAPSULATED_SOUL.get(), ModRegistries.SWORD_OF_CENTURION.get());
         }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             insertAfter(entries, Items.FIRE_CHARGE, ModRegistries.SOUL_CHARGE.get());
@@ -53,8 +55,15 @@ public final class ModEventHandlers {
     private static void insertAfter(
             MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries,
             Item anchorItem,
+            ItemStack modStack) {
+        entries.putAfter(findReferenceStack(entries, anchorItem), modStack, TAB_VISIBILITY);
+    }
+
+    private static void insertAfter(
+            MutableHashedLinkedMap<ItemStack, CreativeModeTab.TabVisibility> entries,
+            Item anchorItem,
             Item modItem) {
-        entries.putAfter(findReferenceStack(entries, anchorItem), new ItemStack(modItem), TAB_VISIBILITY);
+        insertAfter(entries, anchorItem, new ItemStack(modItem));
     }
 
     private static ItemStack findReferenceStack(

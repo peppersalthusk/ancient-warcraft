@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "IIE",
+    "IAN",
+    "BII"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "ancient_warcraft:encapsulated_soul"
+    },
+    "A": {
+      "item": "ancient_warcraft:ancient_core"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "B": {
+      "item": "minecraft:breeze_rod"
+    }
+  },
+  "result": {
+    "id": "ancient_warcraft:sword_of_centurion",
+    "count": 1,
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:knockback": 5,
+        "minecraft:sharpness": 10,
+        "minecraft:fire_aspect": 2,
+        "minecraft:sweeping_edge": 3,
+        "minecraft:looting": 2,
+        "minecraft:mending": 1
+      }
+    }
+  }
+}

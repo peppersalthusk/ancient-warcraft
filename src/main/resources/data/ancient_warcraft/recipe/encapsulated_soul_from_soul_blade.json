@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "ancient_warcraft:soul_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "ancient_warcraft:soul_blade"
+  },
+  "addition": {
+    "item": "minecraft:wither_skeleton_skull"
+  },
+  "result": {
+    "id": "ancient_warcraft:encapsulated_soul",
+    "count": 1,
+    "components": {
+      "minecraft:enchantments": {
+        "minecraft:fire_aspect": 2
+      }
+    }
+  }
+}

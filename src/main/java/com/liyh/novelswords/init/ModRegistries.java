@@ -3,10 +3,12 @@ package com.liyh.AncientWarcraft.init;
 import com.liyh.AncientWarcraft.AncientWarcraft;
 import com.liyh.AncientWarcraft.entity.SoulFireball;
 import com.liyh.AncientWarcraft.item.BlazeSwordItem;
+import com.liyh.AncientWarcraft.item.EncapsulatedSoulItem;
 import com.liyh.AncientWarcraft.item.MagmaSwordItem;
 import com.liyh.AncientWarcraft.item.SoulBladeItem;
 import com.liyh.AncientWarcraft.item.SoulChargeItem;
 import com.liyh.AncientWarcraft.item.SoulUpgradeSmithingTemplateItem;
+import com.liyh.AncientWarcraft.item.SwordOfCenturionItem;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
@@ -30,6 +32,12 @@ public final class ModRegistries {
 
     public static final RegistryObject<SoulBladeItem> SOUL_BLADE =
             ITEMS.register("soul_blade", SoulBladeItem::new);
+
+    public static final RegistryObject<EncapsulatedSoulItem> ENCAPSULATED_SOUL =
+            ITEMS.register("encapsulated_soul", EncapsulatedSoulItem::new);
+
+    public static final RegistryObject<SwordOfCenturionItem> SWORD_OF_CENTURION =
+            ITEMS.register("sword_of_centurion", SwordOfCenturionItem::new);
 
     public static final RegistryObject<SoulChargeItem> SOUL_CHARGE =
             ITEMS.register("soul_charge", SoulChargeItem::new);

@@ -29,6 +29,9 @@ public class MagmaSwordItem extends SwordItem {
     }
 
     public static void applyDefaultEnchantments(ItemStack stack, RegistryAccess access) {
+        if (access.registry(Registries.ENCHANTMENT).isEmpty()) {
+            return;
+        }
         if (!needsDefaultEnchantments(stack, access)) {
             return;
         }
