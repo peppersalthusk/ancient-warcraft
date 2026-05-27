@@ -1,7 +1,9 @@
-package com.liyh.novelswords.event;
+package com.liyh.AncientWarcraft.event;
 
-import com.liyh.novelswords.NovelSwords;
-import com.liyh.novelswords.item.MagmaSwordItem;
+import com.liyh.AncientWarcraft.AncientWarcraft;
+import com.liyh.AncientWarcraft.item.BlazeSwordItem;
+import com.liyh.AncientWarcraft.item.MagmaSwordItem;
+import com.liyh.AncientWarcraft.item.SoulBladeItem;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -11,13 +13,13 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = NovelSwords.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = AncientWarcraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class ModGameEvents {
     private ModGameEvents() {}
 
     @SubscribeEvent
     public static void onGrindstonePlace(GrindstoneEvent.OnPlaceItem event) {
-        if (MagmaSwordItem.isMagmaSword(event.getTopItem()) || MagmaSwordItem.isMagmaSword(event.getBottomItem())) {
+        if (isProtectedSword(event.getTopItem()) || isProtectedSword(event.getBottomItem())) {
             event.setOutput(ItemStack.EMPTY);
         }
     }
@@ -36,15 +38,28 @@ public final class ModGameEvents {
         applyDefaultEnchantmentsToInventory(player.getInventory(), access);
     }
 
+    private static boolean isProtectedSword(ItemStack stack) {
+        return MagmaSwordItem.isMagmaSword(stack)
+                || BlazeSwordItem.isBlazeSword(stack)
+                || SoulBladeItem.isSoulBlade(stack);
+    }
+
     private static void applyDefaultEnchantmentsToInventory(Inventory inventory, RegistryAccess access) {
         for (ItemStack stack : inventory.items) {
-            if (MagmaSwordItem.needsDefaultEnchantments(stack, access)) {
-                MagmaSwordItem.applyDefaultEnchantments(stack, access);
-            }
+            applyDefaultEnchantmentsIfNeeded(stack, access);
         }
-        ItemStack offhand = inventory.offhand.get(0);
-        if (MagmaSwordItem.needsDefaultEnchantments(offhand, access)) {
-            MagmaSwordItem.applyDefaultEnchantments(offhand, access);
+        applyDefaultEnchantmentsIfNeeded(inventory.offhand.get(0), access);
+    }
+
+    private static void applyDefaultEnchantmentsIfNeeded(ItemStack stack, RegistryAccess access) {
+        if (MagmaSwordItem.needsDefaultEnchantments(stack, access)) {
+            MagmaSwordItem.applyDefaultEnchantments(stack, access);
+        }
+        if (BlazeSwordItem.needsDefaultEnchantments(stack, access)) {
+            BlazeSwordItem.applyDefaultEnchantments(stack, access);
+        }
+        if (SoulBladeItem.needsDefaultEnchantments(stack, access)) {
+            SoulBladeItem.applyDefaultEnchantments(stack, access);
         }
     }
 }

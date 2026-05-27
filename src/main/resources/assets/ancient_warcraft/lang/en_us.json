@@ -1,0 +1,16 @@
+{
+  "mod.ancient_warcraft.name": "Ancient Warcraft",
+  "item.ancient_warcraft.magma_sword": "Magma Sword",
+  "item.ancient_warcraft.blaze_sword": "§6Blaze Sword",
+  "item.ancient_warcraft.soul_blade": "§9Soul Blade",
+  "item.ancient_warcraft.soul_charge": "Soul Charge",
+  "item.ancient_warcraft.purified_soul": "Purified Soul",
+  "item.ancient_warcraft.energy_cell": "Energy Cell",
+  "item.ancient_warcraft.ancient_core": "Ancient Core",
+  "item.ancient_warcraft.soul_upgrade_smithing_template": "Soul Upgrade Smithing Template",
+  "upgrade.ancient_warcraft.soul_upgrade.applies_to": "Soul Equipment",
+  "upgrade.ancient_warcraft.soul_upgrade.ingredients": "Soul Ingredient",
+  "upgrade.ancient_warcraft.soul_upgrade.description": "Soul Upgrade",
+  "upgrade.ancient_warcraft.soul_upgrade.base": "Add diamond gear",
+  "upgrade.ancient_warcraft.soul_upgrade.additions": "Add Netherite Ingot"
+}

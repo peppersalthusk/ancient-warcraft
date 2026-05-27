@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "novel_swords:item/magma_sword"
+    "layer0": "ancient_warcraft:item/blaze_sword"
   }
 }

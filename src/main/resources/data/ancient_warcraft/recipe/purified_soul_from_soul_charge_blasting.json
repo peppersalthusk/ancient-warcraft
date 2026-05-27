@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "ancient_warcraft:soul_charge"
+  },
+  "result": {
+    "id": "ancient_warcraft:purified_soul"
+  }
+}

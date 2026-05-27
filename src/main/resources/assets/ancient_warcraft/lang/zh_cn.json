@@ -1,0 +1,16 @@
+{
+  "mod.ancient_warcraft.name": "Ancient Warcraft",
+  "item.ancient_warcraft.magma_sword": "岩浆剑",
+  "item.ancient_warcraft.blaze_sword": "§6炽炎剑",
+  "item.ancient_warcraft.soul_blade": "§9灵焰剑",
+  "item.ancient_warcraft.soul_charge": "灵焰弹",
+  "item.ancient_warcraft.purified_soul": "纯化的灵魂",
+  "item.ancient_warcraft.energy_cell": "能量单元",
+  "item.ancient_warcraft.ancient_core": "古代核心",
+  "item.ancient_warcraft.soul_upgrade_smithing_template": "灵魂升级模板",
+  "upgrade.ancient_warcraft.soul_upgrade.applies_to": "灵魂装备",
+  "upgrade.ancient_warcraft.soul_upgrade.ingredients": "灵魂材料",
+  "upgrade.ancient_warcraft.soul_upgrade.description": "灵魂升级",
+  "upgrade.ancient_warcraft.soul_upgrade.base": "放入钻石装备",
+  "upgrade.ancient_warcraft.soul_upgrade.additions": "放入下界合金锭"
+}

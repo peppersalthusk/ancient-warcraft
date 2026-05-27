@@ -13,19 +13,17 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 
-public class MagmaSwordItem extends SwordItem {
-    public MagmaSwordItem() {
-        super(Tiers.STONE, new net.minecraft.world.item.Item.Properties());
+public class BlazeSwordItem extends SwordItem {
+    private static final int DEFAULT_FIRE_ASPECT_LEVEL = 2;
+    private static final int DEFAULT_SWEEPING_EDGE_LEVEL = 2;
+
+    public BlazeSwordItem() {
+        super(Tiers.DIAMOND, new net.minecraft.world.item.Item.Properties());
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack repairCandidate) {
-        return repairCandidate.is(Items.MAGMA_BLOCK);
-    }
-
-    @Override
-    public int getEnchantmentValue() {
-        return Tiers.STONE.getEnchantmentValue();
+        return repairCandidate.is(Items.BLAZE_ROD);
     }
 
     public static void applyDefaultEnchantments(ItemStack stack, RegistryAccess access) {
@@ -34,13 +32,13 @@ public class MagmaSwordItem extends SwordItem {
         }
         Registry<Enchantment> enchantmentRegistry = access.registryOrThrow(Registries.ENCHANTMENT);
         EnchantmentHelper.updateEnchantments(stack, mutable -> {
-            mutable.set(enchantmentRegistry.getHolderOrThrow(Enchantments.FIRE_ASPECT), 1);
-            mutable.set(enchantmentRegistry.getHolderOrThrow(Enchantments.SWEEPING_EDGE), 1);
+            mutable.set(enchantmentRegistry.getHolderOrThrow(Enchantments.FIRE_ASPECT), DEFAULT_FIRE_ASPECT_LEVEL);
+            mutable.set(enchantmentRegistry.getHolderOrThrow(Enchantments.SWEEPING_EDGE), DEFAULT_SWEEPING_EDGE_LEVEL);
         });
     }
 
     public static boolean needsDefaultEnchantments(ItemStack stack, RegistryAccess access) {
-        if (!isMagmaSword(stack) || stack.isEmpty()) {
+        if (!isBlazeSword(stack) || stack.isEmpty()) {
             return false;
         }
         if (access.registry(Registries.ENCHANTMENT).isEmpty()) {
@@ -49,11 +47,11 @@ public class MagmaSwordItem extends SwordItem {
         Registry<Enchantment> enchantmentRegistry = access.registryOrThrow(Registries.ENCHANTMENT);
         Holder<Enchantment> fireAspect = enchantmentRegistry.getHolderOrThrow(Enchantments.FIRE_ASPECT);
         Holder<Enchantment> sweepingEdge = enchantmentRegistry.getHolderOrThrow(Enchantments.SWEEPING_EDGE);
-        return EnchantmentHelper.getItemEnchantmentLevel(fireAspect, stack) < 1
-                || EnchantmentHelper.getItemEnchantmentLevel(sweepingEdge, stack) < 1;
+        return EnchantmentHelper.getItemEnchantmentLevel(fireAspect, stack) < DEFAULT_FIRE_ASPECT_LEVEL
+                || EnchantmentHelper.getItemEnchantmentLevel(sweepingEdge, stack) < DEFAULT_SWEEPING_EDGE_LEVEL;
     }
 
-    public static boolean isMagmaSword(ItemStack stack) {
-        return stack.is(ModRegistries.MAGMA_SWORD.get());
+    public static boolean isBlazeSword(ItemStack stack) {
+        return stack.is(ModRegistries.BLAZE_SWORD.get());
     }
 }

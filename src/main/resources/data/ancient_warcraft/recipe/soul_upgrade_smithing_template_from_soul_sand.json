@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PTP",
+    "DSD",
+    "DDD"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "T": {
+      "item": "ancient_warcraft:soul_upgrade_smithing_template"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "minecraft:soul_sand"
+    }
+  },
+  "result": {
+    "id": "ancient_warcraft:soul_upgrade_smithing_template",
+    "count": 2
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IOI",
+    "OPO",
+    "IOI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "P": {
+      "item": "ancient_warcraft:purified_soul"
+    }
+  },
+  "result": {
+    "id": "ancient_warcraft:energy_cell",
+    "count": 1
+  }
+}
