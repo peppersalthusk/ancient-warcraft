@@ -1,7 +1,6 @@
 package com.liyh.AncientWarcraft.event;
 
 import com.liyh.AncientWarcraft.AncientWarcraft;
-import com.liyh.AncientWarcraft.dispenser.SoulChargeDispenseBehavior;
 import com.liyh.AncientWarcraft.init.ModRegistries;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTab;
@@ -9,6 +8,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.core.dispenser.ProjectileDispenseBehavior;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraftforge.common.util.MutableHashedLinkedMap;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -29,7 +29,7 @@ public final class ModEventHandlers {
     public static void onCommonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("{} common setup", AncientWarcraft.MOD_ID);
         event.enqueueWork(() -> DispenserBlock.registerBehavior(
-                ModRegistries.SOUL_CHARGE.get(), new SoulChargeDispenseBehavior()));
+                ModRegistries.SOUL_CHARGE.get(), new ProjectileDispenseBehavior(ModRegistries.SOUL_CHARGE.get())));
     }
 
     @SubscribeEvent

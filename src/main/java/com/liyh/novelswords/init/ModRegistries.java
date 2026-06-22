@@ -1,6 +1,7 @@
 package com.liyh.AncientWarcraft.init;
 
 import com.liyh.AncientWarcraft.AncientWarcraft;
+import com.liyh.AncientWarcraft.entity.CenturionWitherSkull;
 import com.liyh.AncientWarcraft.entity.SoulFireball;
 import com.liyh.AncientWarcraft.item.BlazeSwordItem;
 import com.liyh.AncientWarcraft.item.EncapsulatedSoulItem;
@@ -61,6 +62,16 @@ public final class ModRegistries {
                     .clientTrackingRange(4)
                     .updateInterval(10)
                     .build("soul_fireball"));
+
+    public static final RegistryObject<EntityType<CenturionWitherSkull>> CENTURION_WITHER_SKULL =
+            ENTITIES.register(
+                    "centurion_wither_skull",
+                    () -> EntityType.Builder.<CenturionWitherSkull>of(
+                                    CenturionWitherSkull::new, MobCategory.MISC)
+                            .sized(0.3125F, 0.3125F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .build("centurion_wither_skull"));
 
     private ModRegistries() {}
 

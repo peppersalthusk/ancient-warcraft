@@ -1,5 +1,6 @@
 package com.liyh.AncientWarcraft.item;
 
+import com.liyh.AncientWarcraft.entity.CenturionWitherSkull;
 import com.liyh.AncientWarcraft.init.ModRegistries;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
@@ -14,10 +15,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.WitherSkull;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.UseAnim;
@@ -29,7 +28,7 @@ public class SwordOfCenturionItem extends SwordItem {
   private static final int MAX_DURABILITY = 10_000;
   public static final int CHARGE_DURATION_TICKS = 30;
   public static final int CHARGE_TOLERANCE_TICKS = 2;
-  private static final float SKULL_SPEED = 1.2F;
+  private static final float SKULL_SPEED = 1.6F;
 
   private static final int KNOCKBACK_LEVEL = 5;
   private static final int SHARPNESS_LEVEL = 10;
@@ -96,14 +95,13 @@ public class SwordOfCenturionItem extends SwordItem {
     }
 
     ServerLevel serverLevel = (ServerLevel) level;
-    WitherSkull skull = EntityType.WITHER_SKULL.create(serverLevel);
+    CenturionWitherSkull skull = ModRegistries.CENTURION_WITHER_SKULL.get().create(serverLevel);
     if (skull == null) {
       return;
     }
     skull.setOwner(player);
     skull.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
     skull.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, SKULL_SPEED, 0.0F);
-    skull.setDangerous(false);
     serverLevel.addFreshEntity(skull);
   }
 

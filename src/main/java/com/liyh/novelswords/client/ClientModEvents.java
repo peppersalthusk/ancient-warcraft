@@ -5,6 +5,7 @@ import com.liyh.AncientWarcraft.init.ModRegistries;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.client.renderer.entity.WitherSkullRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,7 +21,10 @@ public final class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         LOGGER.info("{} client setup", AncientWarcraft.MOD_ID);
-        event.enqueueWork(() -> EntityRenderers.register(
-                ModRegistries.SOUL_FIREBALL.get(), ThrownItemRenderer::new));
+        event.enqueueWork(() -> {
+            EntityRenderers.register(ModRegistries.SOUL_FIREBALL.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(
+                    ModRegistries.CENTURION_WITHER_SKULL.get(), WitherSkullRenderer::new);
+        });
     }
 }
